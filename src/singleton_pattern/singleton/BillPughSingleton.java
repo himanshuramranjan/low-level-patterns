@@ -35,12 +35,21 @@ package singleton_pattern.singleton;
  * - Reflection can still break singleton pattern
  */
 public class BillPughSingleton {
+
+
+    // Example for using external parameters in case of Singleton pattern
+    private final String properties;
+    private static String configPath;
+
     private BillPughSingleton() {
         // Private constructor
         // Prevent reflection instantiation
         if (SingletonHelper.INSTANCE != null) {
             throw new IllegalStateException("Instance already exists! Use getInstance() method.");
         }
+
+        // simulate loading of properties for one time from the passed configPath
+        this.properties = "Loaded from some external call " + configPath; // loadConfig(configPath)
     }
     
     // Inner static helper class - not loaded until getInstance() is called
@@ -59,8 +68,10 @@ public class BillPughSingleton {
     }
     
     // Example method demonstrating resource management
-    public void allocateResource(String resourceName) {
-        System.out.println("Allocating resource: " + resourceName);
-        // Resource allocation logic
+    public static void init(String path) {
+        if (configPath != null) {
+            throw new IllegalStateException("Already initialized!");
+        }
+        configPath = path;
     }
 }
