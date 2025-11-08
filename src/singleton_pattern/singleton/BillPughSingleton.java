@@ -38,6 +38,10 @@ public class BillPughSingleton {
 
 
     // Example for using external parameters in case of Singleton pattern
+
+//    In the Bill Pugh Singleton, the singleton instance (properties) can be final since
+//    it’s initialized once in the constructor, but the external configuration (configPath)
+//    must be static (not final) because it’s set at runtime before instance creation — Java doesn’t allow late assignment to a final field.
     private final String properties;
     private static String configPath;
 
