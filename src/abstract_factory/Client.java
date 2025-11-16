@@ -33,7 +33,7 @@ public class Client {
      */
     private static void createFurnitureSet(FurnitureFactory factory, String style) {
         System.out.println("Creating " + style + " Furniture Set:");
-        
+
         // Create all furniture pieces using the same factory
         // This ensures they are of the same family/style
         Chair chair = factory.createChair();

@@ -6,6 +6,7 @@ package abstract_factory.furniture;
  * Concrete implementations will provide style-specific behavior.
  */
 public interface CoffeeTable {
-    void putOn();    // Operation to simulate putting items on the coffee table
+    void putOn(); // Operation to simulate putting items on the coffee table
+
     String getStyle(); // Returns the style of the coffee table
 }

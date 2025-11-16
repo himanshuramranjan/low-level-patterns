@@ -6,6 +6,7 @@ package abstract_factory.furniture;
  * Each concrete sofa implementation will provide its own unique behavior.
  */
 public interface Sofa {
-    void lieOn();    // Operation to simulate lying on the sofa
+    void lieOn(); // Operation to simulate lying on the sofa
+
     String getStyle(); // Returns the style of the sofa (e.g., "Modern", "Victorian")
 }
