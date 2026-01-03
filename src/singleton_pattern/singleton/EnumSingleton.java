@@ -11,19 +11,19 @@ package singleton_pattern.singleton;
  * 
  * Best Use Cases:
  * 1. Configuration Management:
- *    - Application settings
- *    - Feature flags/toggles
- *    - Environment configurations
+ * - Application settings
+ * - Feature flags/toggles
+ * - Environment configurations
  * 
  * 2. State Management:
- *    - Application state machines
- *    - Game states
- *    - Process control states
+ * - Application state machines
+ * - Game states
+ * - Process control states
  * 
  * 3. Registry Pattern Implementation:
- *    - Type registries
- *    - Strategy registries
- *    - Command registries
+ * - Type registries
+ * - Strategy registries
+ * - Command registries
  * 
  * Advantages:
  * - Serialization guaranteed
@@ -38,32 +38,31 @@ package singleton_pattern.singleton;
  */
 public enum EnumSingleton {
     INSTANCE;
-    
     private String configValue;
     private boolean featureFlag;
-    
+
     EnumSingleton() {
         // Initialize default values
         this.configValue = "default";
         this.featureFlag = false;
     }
-    
+
     // Example method demonstrating configuration management
     public void setConfiguration(String value) {
         this.configValue = value;
         System.out.println("Configuration updated to: " + value);
     }
-    
+
     public String getConfiguration() {
         return configValue;
     }
-    
+
     // Example method demonstrating feature flag management
     public void toggleFeature(boolean enabled) {
         this.featureFlag = enabled;
         System.out.println("Feature " + (enabled ? "enabled" : "disabled"));
     }
-    
+
     public boolean isFeatureEnabled() {
         return featureFlag;
     }

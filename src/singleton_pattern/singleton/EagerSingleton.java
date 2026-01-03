@@ -10,16 +10,16 @@ package singleton_pattern.singleton;
  * 
  * Best Use Cases:
  * 1. Configuration Management:
- *    - Loading application configurations that are always needed
- *    - System settings that are used throughout the application
+ * - Loading application configurations that are always needed
+ * - System settings that are used throughout the application
  * 
  * 2. Resource Management:
- *    - Database connection pools where connection is always needed
- *    - File system managers that are constantly used
+ * - Database connection pools where connection is always needed
+ * - File system managers that are constantly used
  * 
  * 3. Cache Management:
- *    - Application-level cache that needs to be available immediately
- *    - Shared resource pools that are always required
+ * - Application-level cache that needs to be available immediately
+ * - Shared resource pools that are always required
  * 
  * Advantages:
  * - Simple implementation
@@ -34,7 +34,7 @@ package singleton_pattern.singleton;
 public class EagerSingleton {
     // Create instance during class loading
     private static final EagerSingleton instance = new EagerSingleton();
-    
+
     // Private constructor to prevent instantiation
     private EagerSingleton() {
         // Prevent instantiation via reflection
@@ -42,17 +42,17 @@ public class EagerSingleton {
             throw new IllegalStateException("Instance already exists! Use getInstance() method.");
         }
     }
-    
+
     public static EagerSingleton getInstance() {
         return instance;
     }
-    
+
     // Example method demonstrating configuration management
     public void loadConfiguration() {
         System.out.println("Loading application configuration...");
         // Configuration loading logic
     }
-    
+
     // Example method demonstrating resource management
     public void connectToDatabase() {
         System.out.println("Establishing database connection...");

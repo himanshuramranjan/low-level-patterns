@@ -10,7 +10,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Client code demonstrating different Singleton implementations with practical use cases
+ * Client code demonstrating different Singleton implementations with practical
+ * use cases
  * and thread safety testing
  */
 public class Client {
@@ -19,6 +20,7 @@ public class Client {
         demonstrateThreadSafety();
         demonstratePracticalUseCases();
     }
+
     private static void demonstrateBasicSingletonUsage() {
         System.out.println("\n=== Basic Singleton Usage ===");
 
@@ -40,8 +42,8 @@ public class Client {
         BillPughSingleton billPugh1 = BillPughSingleton.getInstance();
         BillPughSingleton billPugh2 = BillPughSingleton.getInstance();
         System.out.println("Bill Pugh Singleton Objects Same? " + (billPugh1 == billPugh2));
-        billPugh2.init("/etc/app/config.properties");
         billPugh1.registerPlugin("Security Plugin");
+        billPugh2.allocateResource("Memory Pool");
 
         // Enum Singleton Demo
         EnumSingleton enumSingleton1 = EnumSingleton.INSTANCE;
@@ -56,9 +58,9 @@ public class Client {
      */
     private static void demonstrateThreadSafety() throws InterruptedException {
         System.out.println("\n=== Thread Safety Test ===");
-        
+
         ExecutorService executor = Executors.newFixedThreadPool(5);
-        
+
         // Test each singleton type with multiple threads
         for (int i = 0; i < 5; i++) {
             executor.execute(() -> {
@@ -94,9 +96,9 @@ public class Client {
 
         // Bill Pugh Singleton for Plugin Management
         BillPughSingleton pluginManager = BillPughSingleton.getInstance();
-        pluginManager.init("/etc/app/config.properties");
         pluginManager.registerPlugin("Authentication");
         pluginManager.registerPlugin("Authorization");
+        pluginManager.allocateResource("Cache Memory");
 
         // Enum Singleton for Feature Flags
         EnumSingleton featureFlags = EnumSingleton.INSTANCE;

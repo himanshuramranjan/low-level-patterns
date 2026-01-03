@@ -10,19 +10,19 @@ package singleton_pattern.singleton;
  * 
  * Best Use Cases:
  * 1. Perfect for Memory-Critical Applications:
- *    - Android applications
- *    - Memory-sensitive desktop applications
- *    - Embedded systems with limited resources
+ * - Android applications
+ * - Memory-sensitive desktop applications
+ * - Embedded systems with limited resources
  * 
  * 2. High-Performance Requirements:
- *    - Real-time systems requiring quick access
- *    - High-throughput services
- *    - Performance-critical components
+ * - Real-time systems requiring quick access
+ * - High-throughput services
+ * - Performance-critical components
  * 
  * 3. Framework Development:
- *    - Plugin managers
- *    - Service locators
- *    - Resource managers in frameworks
+ * - Plugin managers
+ * - Service locators
+ * - Resource managers in frameworks
  * 
  * Advantages:
  * - Most efficient thread-safe singleton
@@ -35,47 +35,32 @@ package singleton_pattern.singleton;
  * - Reflection can still break singleton pattern
  */
 public class BillPughSingleton {
-
-
-    // Example for using external parameters in case of Singleton pattern
-
-//    In the Bill Pugh Singleton, the singleton instance (properties) can be final since
-//    it’s initialized once in the constructor, but the external configuration (configPath)
-//    must be static (not final) because it’s set at runtime before instance creation — Java doesn’t allow late assignment to a final field.
-    private final String properties;
-    private static String configPath;
-
     private BillPughSingleton() {
         // Private constructor
         // Prevent reflection instantiation
         if (SingletonHelper.INSTANCE != null) {
             throw new IllegalStateException("Instance already exists! Use getInstance() method.");
         }
-
-        // simulate loading of properties for one time from the passed configPath
-        this.properties = "Loaded from some external call " + configPath; // loadConfig(configPath)
     }
-    
+
     // Inner static helper class - not loaded until getInstance() is called
     private static class SingletonHelper {
         private static final BillPughSingleton INSTANCE = new BillPughSingleton();
     }
-    
+
     public static BillPughSingleton getInstance() {
         return SingletonHelper.INSTANCE;
     }
-    
+
     // Example method demonstrating plugin management
     public void registerPlugin(String pluginName) {
         System.out.println("Registering plugin: " + pluginName);
         // Plugin registration logic
     }
-    
+
     // Example method demonstrating resource management
-    public static void init(String path) {
-        if (configPath != null) {
-            throw new IllegalStateException("Already initialized!");
-        }
-        configPath = path;
+    public void allocateResource(String resourceName) {
+        System.out.println("Allocating resource: " + resourceName);
+        // Resource allocation logic
     }
 }
